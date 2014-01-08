@@ -67,14 +67,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="sendMessage.aspx" />
-    <Content Include="Service.svc" />
+    <Content Include="UserService.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="gcmRegistration.cs">
       <DependentUpon>VNTClasses.tt</DependentUpon>
     </Compile>
-    <Compile Include="IService.cs" />
+    <Compile Include="IUserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="sendMessage.aspx.cs">
       <DependentUpon>sendMessage.aspx</DependentUpon>
@@ -83,8 +83,8 @@
     <Compile Include="sendMessage.aspx.designer.cs">
       <DependentUpon>sendMessage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Service.svc.cs">
-      <DependentUpon>Service.svc</DependentUpon>
+    <Compile Include="UserService.svc.cs">
+      <DependentUpon>UserService.svc</DependentUpon>
     </Compile>
     <Compile Include="VNTClasses.Context.cs">
       <AutoGen>True</AutoGen>
