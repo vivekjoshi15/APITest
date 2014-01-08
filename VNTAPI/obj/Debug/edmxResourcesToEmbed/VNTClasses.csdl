@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="VNTModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="VNTEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="gcmRegistrations" EntityType="VNTModel.gcmRegistration" />
+  </EntityContainer>
+  <EntityType Name="gcmRegistration">
+    <Key>
+      <PropertyRef Name="registrationId" />
+    </Key>
+    <Property Name="registrationId" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="deviceRegistrationId" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="createdDate" Type="DateTime" Precision="3" />
+  </EntityType>
+</Schema>

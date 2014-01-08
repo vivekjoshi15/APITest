@@ -1,0 +1,7 @@
+D:\Project\VNT\VNTAPI\VNTAPI\obj\Debug\VNTAPI.csprojResolveAssemblyReference.cache
+D:\Project\VNT\VNTAPI\VNTAPI\bin\VNTAPI.dll
+D:\Project\VNT\VNTAPI\VNTAPI\bin\VNTAPI.pdb
+D:\Project\VNT\VNTAPI\VNTAPI\bin\EntityFramework.dll
+D:\Project\VNT\VNTAPI\VNTAPI\bin\EntityFramework.xml
+D:\Project\VNT\VNTAPI\VNTAPI\obj\Debug\VNTAPI.dll
+D:\Project\VNT\VNTAPI\VNTAPI\obj\Debug\VNTAPI.pdb
