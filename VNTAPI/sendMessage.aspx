@@ -13,8 +13,11 @@
         <asp:DropDownList ID="DropDownList1" runat="server" Height="17px" Width="122px">
         </asp:DropDownList>
             <br />
+            Send message Title:<br />
+            <asp:TextBox ID="txtTitle" runat="server" Width="261px"></asp:TextBox>
+            <br />
             Send message:<br />
-            <asp:TextBox ID="TextBox1" runat="server" Height="99px" TextMode="MultiLine" Width="261px"></asp:TextBox>
+            <asp:TextBox ID="txtMessage" runat="server" Height="99px" TextMode="MultiLine" Width="261px"></asp:TextBox>
             <br />
             <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Send Message To Device" />
             <br />
