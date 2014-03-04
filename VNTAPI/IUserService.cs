@@ -17,6 +17,11 @@ public interface IUserService
     [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.Bare, UriTemplate = "sendGCMPost")]
     [OperationContract]
     ResponeGCMPass sendGCMPost(RequestGCMPass objRequestGCMPass);
+
+    [WebGet(ResponseFormat = WebMessageFormat.Json, UriTemplate = "registerUser/{fname}/{lname}/{Email}/{phone}/{password}")]
+    [OperationContract]
+    List<ResponseEmployee> addDetails(string fname, string lname, string email, string phone, string password);
+
 }
 
 [DataContract]
@@ -39,4 +44,23 @@ public class ResponeGCMPass
     public string result { get; set; }
     [DataMember]
     public string message { get; set; }
+}
+
+[DataContract]
+public partial class ResponseEmployee
+{
+    [DataMember]
+    public string result { get; set; }    
+    [DataMember]
+    public string FirstName { get; set; }
+    [DataMember]
+    public string LastNAme { get; set; }
+    [DataMember]
+    public string Email { get; set; }
+    [DataMember]
+    public string Phone { get; set; }
+    [DataMember]
+    public string Password { get; set; }
+    [DataMember]
+    public int Id { get; set; }
 }

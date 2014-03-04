@@ -2,6 +2,7 @@
 <Schema Namespace="VNTModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityContainer Name="VNTEntities" p1:LazyLoadingEnabled="true">
     <EntitySet Name="gcmRegistrations" EntityType="VNTModel.gcmRegistration" />
+    <EntitySet Name="tbUserDetails" EntityType="VNTModel.tbUserDetail" />
   </EntityContainer>
   <EntityType Name="gcmRegistration">
     <Key>
@@ -10,5 +11,17 @@
     <Property Name="registrationId" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
     <Property Name="deviceRegistrationId" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
     <Property Name="createdDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tbUserDetail">
+    <Key>
+      <PropertyRef Name="userId" />
+    </Key>
+    <Property Type="Int32" Name="userId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="userFirstName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="userLastName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="userPhone" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="userEmail" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="userPassword" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="userRole" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
 </Schema>

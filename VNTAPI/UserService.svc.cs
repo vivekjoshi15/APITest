@@ -55,6 +55,39 @@ public class UserService : IUserService
 
     }
 
+    public List<ResponseEmployee> addDetails(string fname, string lname, string email, string phone, string password)
+    {
+        List<ResponseEmployee> objResult = new List<ResponseEmployee>();
+        ResponseEmployee objEmp = new ResponseEmployee();
+        try
+        {
+            objEmp.result = "success";
+            objEmp.FirstName = fname;
+            objEmp.FirstName = fname;
+            objEmp.LastNAme = lname;
+            objEmp.Email = email;
+            objEmp.Phone = phone;
+            objEmp.Password = password;
+            objResult.Add(objEmp);
+            tbUserDetail obj = new tbUserDetail();
+            obj.userFirstName = objEmp.FirstName;
+            obj.userLastName = objEmp.LastNAme;
+            obj.userEmail = objEmp.Email;
+            obj.userPhone = objEmp.Phone;
+            obj.userPassword = objEmp.Password;
+            dc.tbUserDetails.Add(obj);
+            dc.SaveChanges();
+            return objResult;
+        }
+        catch (Exception ex)
+        {
+            objEmp.result = "fail";            
+            objResult.Add(objEmp);
+            return objResult;
+        }
+
+    }
+
     public ResponeGCMPass sendGCMPost(RequestGCMPass objRequestGCMPass)
     {   
         ResponeGCMPass response = new ResponeGCMPass();
@@ -128,12 +161,9 @@ public class UserService : IUserService
         }
     } 
 
-    public static bool ValidateServerCertificate(
-                                              object sender,
-                                              X509Certificate certificate,
-                                              X509Chain chain,
-                                              SslPolicyErrors sslPolicyErrors)
+    public static bool ValidateServerCertificate(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
     {
         return true;
     }
+
 }

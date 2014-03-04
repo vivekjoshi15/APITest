@@ -4,9 +4,10 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="VNTModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="VNTModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="VNTModelStoreContainer">
           <EntitySet Name="gcmRegistration" EntityType="VNTModel.Store.gcmRegistration" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="tbUserDetail" EntityType="VNTModel.Store.tbUserDetail" store:Type="Tables" Schema="dbo" />
         </EntityContainer>
         <EntityType Name="gcmRegistration">
           <Key>
@@ -16,13 +17,25 @@
           <Property Name="deviceRegistrationId" Type="nvarchar" MaxLength="500" />
           <Property Name="createdDate" Type="datetime" />
         </EntityType>
-      </Schema>
-    </edmx:StorageModels>
+        <EntityType Name="tbUserDetail">
+          <Key>
+            <PropertyRef Name="userId" />
+          </Key>
+          <Property Name="userId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="userFirstName" Type="varchar" MaxLength="50" />
+          <Property Name="userLastName" Type="varchar" MaxLength="50" />
+          <Property Name="userPhone" Type="varchar" MaxLength="50" />
+          <Property Name="userEmail" Type="varchar" MaxLength="50" />
+          <Property Name="userPassword" Type="varchar" MaxLength="50" />
+          <Property Name="userRole" Type="varchar" MaxLength="50" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="VNTModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="VNTEntities" p1:LazyLoadingEnabled="true">
           <EntitySet Name="gcmRegistrations" EntityType="VNTModel.gcmRegistration" />
+          <EntitySet Name="tbUserDetails" EntityType="VNTModel.tbUserDetail" />
         </EntityContainer>
         <EntityType Name="gcmRegistration">
           <Key>
@@ -31,6 +44,18 @@
           <Property Name="registrationId" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Name="deviceRegistrationId" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
           <Property Name="createdDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tbUserDetail">
+          <Key>
+            <PropertyRef Name="userId" />
+          </Key>
+          <Property Type="Int32" Name="userId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="userFirstName" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="userLastName" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="userPhone" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="userEmail" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="userPassword" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="userRole" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -44,6 +69,19 @@
                 <ScalarProperty Name="registrationId" ColumnName="registrationId" />
                 <ScalarProperty Name="deviceRegistrationId" ColumnName="deviceRegistrationId" />
                 <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbUserDetails">
+            <EntityTypeMapping TypeName="VNTModel.tbUserDetail">
+              <MappingFragment StoreEntitySet="tbUserDetail">
+                <ScalarProperty Name="userRole" ColumnName="userRole" />
+                <ScalarProperty Name="userPassword" ColumnName="userPassword" />
+                <ScalarProperty Name="userEmail" ColumnName="userEmail" />
+                <ScalarProperty Name="userPhone" ColumnName="userPhone" />
+                <ScalarProperty Name="userLastName" ColumnName="userLastName" />
+                <ScalarProperty Name="userFirstName" ColumnName="userFirstName" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
