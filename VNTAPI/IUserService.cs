@@ -22,6 +22,10 @@ public interface IUserService
     [OperationContract]
     List<ResponseEmployee> addDetails(string fname, string lname, string email, string phone, string password);
 
+    [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.Bare, UriTemplate = "ChkUserLogin")]
+    [OperationContract]
+    string ChkUserLogin(System.IO.Stream pStream);
+
 }
 
 [DataContract]

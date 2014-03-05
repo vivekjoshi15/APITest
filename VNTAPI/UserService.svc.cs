@@ -55,6 +55,38 @@ public class UserService : IUserService
 
     }
 
+    public string ChkUserLogin(System.IO.Stream pStream)
+    {
+        string result = string.Empty;
+        try
+        {
+            StreamReader sr = new StreamReader(pStream);
+            string request = sr.ReadToEnd();
+            NameValueCollection objParams = System.Web.HttpUtility.ParseQueryString(request);
+            string UserName = objParams["uName"];
+            string Password = objParams["uPass"];
+            var chkId = (from a in dc.tbUserDetails
+                         where a.userEmail == UserName && a.userPassword== Password
+                         select a).FirstOrDefault();
+            if (chkId != null)
+            {    
+                result = "True";
+                return result;
+            }
+            else
+            {
+                result = "False";
+                return result;
+            }
+        }
+        catch (Exception ex)
+        {
+            result = "fail: " + ex.Message;
+            return result;
+        }
+
+    }
+
     public List<ResponseEmployee> addDetails(string fname, string lname, string email, string phone, string password)
     {
         List<ResponseEmployee> objResult = new List<ResponseEmployee>();
