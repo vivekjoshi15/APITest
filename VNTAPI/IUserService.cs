@@ -30,6 +30,10 @@ public interface IUserService
     [OperationContract]
     List<ResponseEmployee> getAll();
 
+    [WebGet(ResponseFormat = WebMessageFormat.Json, UriTemplate = "getUserByID/{id}")]
+    [OperationContract]
+    List<ResponseEmployee> getUserByID(string id);
+
 }
 
 [DataContract]

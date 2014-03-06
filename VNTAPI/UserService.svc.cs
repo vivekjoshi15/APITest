@@ -150,6 +150,35 @@ public class UserService : IUserService
         }
     }
 
+    public List<ResponseEmployee> getUserByID(string id)
+    {
+        int uid = Convert.ToInt32(id);
+        List<ResponseEmployee> objResult = new List<ResponseEmployee>();
+        ResponseEmployee objEmp = new ResponseEmployee();
+        try
+        {
+
+            var editEmp = (from a in dc.tbUserDetails
+                           where a.userId == uid
+                           select a).SingleOrDefault();
+            objEmp.Id = editEmp.userId;
+            objEmp.FirstName = editEmp.userFirstName;
+            objEmp.LastNAme = editEmp.userLastName;
+            objEmp.Phone = editEmp.userPhone;
+            objEmp.Password = editEmp.userPassword;
+            objEmp.Email = editEmp.userEmail;
+            objEmp.result = "success";
+            objResult.Add(objEmp);
+            return objResult;
+        }
+        catch
+        {
+            objEmp.result = "fail";
+            objResult.Add(objEmp);
+            return objResult;
+        }
+    }
+
     public ResponeGCMPass sendGCMPost(RequestGCMPass objRequestGCMPass)
     {   
         ResponeGCMPass response = new ResponeGCMPass();

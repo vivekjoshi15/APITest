@@ -16,6 +16,5 @@ D:\Projects\APITest\VNTAPI\bin\VNTAPI.dll
 D:\Projects\APITest\VNTAPI\bin\VNTAPI.pdb
 D:\Projects\APITest\VNTAPI\bin\EntityFramework.dll
 D:\Projects\APITest\VNTAPI\bin\EntityFramework.xml
-D:\Projects\APITest\VNTAPI\obj\Debug\VNTAPI.csprojResolveAssemblyReference.cache
 D:\Projects\APITest\VNTAPI\obj\Debug\VNTAPI.dll
 D:\Projects\APITest\VNTAPI\obj\Debug\VNTAPI.pdb
