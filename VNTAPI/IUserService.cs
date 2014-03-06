@@ -26,6 +26,10 @@ public interface IUserService
     [OperationContract]
     string ChkUserLogin(System.IO.Stream pStream);
 
+    [WebGet(ResponseFormat = WebMessageFormat.Json, UriTemplate = "getAll")]
+    [OperationContract]
+    List<ResponseEmployee> getAll();
+
 }
 
 [DataContract]

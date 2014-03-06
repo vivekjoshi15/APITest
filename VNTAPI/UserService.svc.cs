@@ -120,6 +120,36 @@ public class UserService : IUserService
 
     }
 
+    public List<ResponseEmployee> getAll()
+    {
+        List<ResponseEmployee> objResult = new List<ResponseEmployee>();
+        ResponseEmployee objEmp = new ResponseEmployee();
+        try
+        {
+            var editEmp = (from a in dc.tbUserDetails
+                           select a).ToList();
+            foreach (tbUserDetail item in editEmp)
+            {
+                objEmp = new ResponseEmployee();
+                objEmp.Id = item.userId;
+                objEmp.FirstName = item.userFirstName;
+                objEmp.LastNAme = item.userLastName;
+                objEmp.Phone = item.userPhone;
+                objEmp.Password = item.userPassword;
+                objEmp.Email = item.userEmail;
+                objEmp.result = "true";
+                objResult.Add(objEmp);
+            }
+            return objResult;
+        }
+        catch
+        {
+            objEmp.result = "fail";
+            objResult.Add(objEmp);
+            return objResult;
+        }
+    }
+
     public ResponeGCMPass sendGCMPost(RequestGCMPass objRequestGCMPass)
     {   
         ResponeGCMPass response = new ResponeGCMPass();
