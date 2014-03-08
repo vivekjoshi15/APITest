@@ -179,6 +179,32 @@ public class UserService : IUserService
         }
     }
 
+    public List<ResponseCompanyList> getCompanyList(string id)
+    {
+        int uid = Convert.ToInt32(id);
+        List<ResponseCompanyList> objResult = new List<ResponseCompanyList>();
+        ResponseCompanyList objEmp = new ResponseCompanyList();
+        try
+        {
+
+            var editEmp = (from a in dc.tbCompanyDetails
+                           where a.userId == uid
+                           select a).SingleOrDefault();
+            objEmp.companyId = editEmp.companyId;
+            objEmp.companyName = editEmp.companyName;
+            objEmp.companyDsc = editEmp.companyDsc;           
+            objEmp.result = "success";
+            objResult.Add(objEmp);
+            return objResult;
+        }
+        catch
+        {
+            objEmp.result = "fail";
+            objResult.Add(objEmp);
+            return objResult;
+        }
+    }
+
     public ResponeGCMPass sendGCMPost(RequestGCMPass objRequestGCMPass)
     {   
         ResponeGCMPass response = new ResponeGCMPass();

@@ -27,5 +27,6 @@ namespace VNTAPI
     
         public DbSet<gcmRegistration> gcmRegistrations { get; set; }
         public DbSet<tbUserDetail> tbUserDetails { get; set; }
+        public DbSet<tbCompanyDetail> tbCompanyDetails { get; set; }
     }
 }

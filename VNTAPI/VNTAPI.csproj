@@ -83,6 +83,9 @@
     <Compile Include="sendMessage.aspx.designer.cs">
       <DependentUpon>sendMessage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="tbCompanyDetail.cs">
+      <DependentUpon>VNTClasses.tt</DependentUpon>
+    </Compile>
     <Compile Include="tbUserDetail.cs">
       <DependentUpon>VNTClasses.tt</DependentUpon>
     </Compile>

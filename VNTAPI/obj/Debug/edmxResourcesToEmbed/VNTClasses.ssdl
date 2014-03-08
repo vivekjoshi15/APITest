@@ -2,6 +2,7 @@
 <Schema Namespace="VNTModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityContainer Name="VNTModelStoreContainer">
     <EntitySet Name="gcmRegistration" EntityType="VNTModel.Store.gcmRegistration" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbCompanyDetail" EntityType="VNTModel.Store.tbCompanyDetail" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="tbUserDetail" EntityType="VNTModel.Store.tbUserDetail" store:Type="Tables" Schema="dbo" />
   </EntityContainer>
   <EntityType Name="gcmRegistration">
@@ -11,6 +12,15 @@
     <Property Name="registrationId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="deviceRegistrationId" Type="nvarchar" MaxLength="500" />
     <Property Name="createdDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbCompanyDetail">
+    <Key>
+      <PropertyRef Name="companyId" />
+    </Key>
+    <Property Name="companyId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="companyName" Type="varchar" MaxLength="50" />
+    <Property Name="companyDsc" Type="varchar" MaxLength="50" />
+    <Property Name="userId" Type="int" />
   </EntityType>
   <EntityType Name="tbUserDetail">
     <Key>

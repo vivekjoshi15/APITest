@@ -34,6 +34,10 @@ public interface IUserService
     [OperationContract]
     List<ResponseEmployee> getUserByID(string id);
 
+    [WebGet(ResponseFormat = WebMessageFormat.Json, UriTemplate = "getCompanylist/{id}")]
+    [OperationContract]
+    List<ResponseCompanyList> getCompanyList(string id);
+
 }
 
 [DataContract]
@@ -75,4 +79,20 @@ public partial class ResponseEmployee
     public string Password { get; set; }
     [DataMember]
     public int Id { get; set; }
+}
+
+[DataContract]
+public partial class ResponseCompanyList
+{
+    [DataMember]
+    public string result { get; set; }
+    [DataMember]
+    public int companyId { get; set; }
+    [DataMember]
+    public string companyName { get; set; }
+    [DataMember]
+    public string companyDsc { get; set; }
+    [DataMember]
+    public int userId { get; set; }
+    
 }

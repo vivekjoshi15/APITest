@@ -23,5 +23,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="tbCompanyDetails">
+      <EntityTypeMapping TypeName="VNTModel.tbCompanyDetail">
+        <MappingFragment StoreEntitySet="tbCompanyDetail">
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="companyDsc" ColumnName="companyDsc" />
+          <ScalarProperty Name="companyName" ColumnName="companyName" />
+          <ScalarProperty Name="companyId" ColumnName="companyId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>
