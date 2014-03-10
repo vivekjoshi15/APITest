@@ -283,4 +283,27 @@ public class UserService : IUserService
         return true;
     }
 
+    public List<ResponseEmployee> deleteuser(string id)
+    {
+        int uid = Convert.ToInt32(id);
+        List<ResponseEmployee> objResult = new List<ResponseEmployee>();
+        ResponseEmployee objEmp = new ResponseEmployee();
+        try
+        {
+            var delEmp = (from a in dc.tbUserDetails
+                          where a.userId == uid
+                          select a).FirstOrDefault();
+            dc.tbUserDetails.Remove(delEmp);
+            dc.SaveChanges();
+            objEmp.result = "success";
+            objResult.Add(objEmp);
+            return objResult;
+        }
+        catch
+        {
+            objEmp.result = "fail";
+            objResult.Add(objEmp);
+            return objResult;
+        }
+    }
 }

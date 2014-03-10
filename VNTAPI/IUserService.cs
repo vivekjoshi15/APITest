@@ -38,6 +38,10 @@ public interface IUserService
     [OperationContract]
     List<ResponseCompanyList> getCompanyList(string id);
 
+    [WebGet(ResponseFormat = WebMessageFormat.Json, UriTemplate = "deleteuser/{id}")]
+    [OperationContract]
+    List<ResponseEmployee> deleteuser(string id);
+
 }
 
 [DataContract]
