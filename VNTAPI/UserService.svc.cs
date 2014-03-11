@@ -306,4 +306,54 @@ public class UserService : IUserService
             return objResult;
         }
     }
+
+    public List<ResponseEmployee> updateUser(ResponseEmployee objPass, string UserId)
+    {
+        int uid = Convert.ToInt32(UserId);
+        List<ResponseEmployee> objResult = new List<ResponseEmployee>();
+        ResponseEmployee objResponsePass = new ResponseEmployee();
+
+        if (objPass == null)
+        {
+            objResponsePass.result = "fail";           
+            objResult.Add(objResponsePass);
+            return objResult;
+        }
+
+        try
+        {
+            if (UserId == null)
+            {
+                objResponsePass.result = "fail";
+                objResult.Add(objResponsePass);
+                return objResult;
+            }
+            else
+            {
+                objResponsePass.Email = objPass.Email;
+                objResponsePass.Phone = objPass.Phone;
+                objResponsePass.FirstName = objPass.FirstName;
+                objResponsePass.LastNAme = objPass.LastNAme;
+                objResponsePass.Password = objPass.Password;
+                objResponsePass.result = "success";
+                objResult.Add(objResponsePass);
+                tbUserDetail newtbemp = (from a in dc.tbUserDetails
+                                       where a.userId == uid
+                                       select a).FirstOrDefault();
+                newtbemp.userFirstName = objResponsePass.FirstName;
+                newtbemp.userLastName = objResponsePass.LastNAme;
+                newtbemp.userEmail = objResponsePass.Email;
+                newtbemp.userPhone = objResponsePass.Phone;
+                newtbemp.userPassword = objResponsePass.Password;
+                dc.SaveChanges();
+                return objResult;
+            }
+        }
+        catch (Exception ex)
+        {
+            objResponsePass.result = "fail";            
+            objResult.Add(objResponsePass);
+            return objResult;
+        }
+    }
 }

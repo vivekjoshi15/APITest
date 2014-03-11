@@ -42,6 +42,10 @@ public interface IUserService
     [OperationContract]
     List<ResponseEmployee> deleteuser(string id);
 
+    [WebInvoke(Method = "POST", BodyStyle = WebMessageBodyStyle.Bare, ResponseFormat = WebMessageFormat.Json, UriTemplate = "updateUser/{UserId}")]
+    [OperationContract]
+    List<ResponseEmployee> updateUser(ResponseEmployee objPass, string UserId);
+
 }
 
 [DataContract]
